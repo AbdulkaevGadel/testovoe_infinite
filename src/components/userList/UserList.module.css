@@ -1,0 +1,52 @@
+.container {
+  width: 50%;
+  height: 100vh;
+  overflow-y: auto;
+  border-right: 1px solid #e0e0e0;
+  background-color: #f8f9fa;
+  position: relative;
+}
+.container .userCard {
+  padding: 1px;
+  border-bottom: 1px solid rgb(211.25, 211.25, 211.25);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.container .userCard:hover {
+  background-color: rgb(233.125, 236.25, 239.375);
+}
+.container .userCard h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 16px;
+}
+.container .userCard p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+.container .userCard .jobTitle {
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+  font-style: italic;
+}
+.container .loading {
+  padding: 16px;
+  text-align: center;
+  background: rgba(248, 249, 250, 0.8);
+  position: sticky;
+  bottom: 0;
+}
+.container .endMessage {
+  padding: 16px;
+  text-align: center;
+  background: #f8f9fa;
+  border-top: 1px solid #e0e0e0;
+  color: #666;
+  font-style: italic;
+  position: sticky;
+  bottom: 0;
+}
+
+/*# sourceMappingURL=UserList.module.css.map */
