@@ -35,17 +35,17 @@ const UserEditForm = () => {
 
     return (
         <div className={styles.container}>
-            <h2 className={styles.title}>Редактирование профиля</h2>
+            {/*<h2 className={styles.title}>Редактирование профиля</h2>*/}
 
             <form className={styles.form} onSubmit={handleSubmit}>
-                <div className={styles.inputGroup}>
-                    <label className={styles.label}>ID</label>
-                    <input
-                        className={styles.input}
-                        value={formData.id}
-                        disabled
-                    />
-                </div>
+                {/*<div className={styles.inputGroup}>*/}
+                {/*    <label className={styles.label}>ID</label>*/}
+                {/*    <input*/}
+                {/*        className={styles.input}*/}
+                {/*        value={formData.id}*/}
+                {/*        disabled*/}
+                {/*    />*/}
+                {/*</div>*/}
 
                 <div className={styles.inputGroup}>
                     <label className={styles.label}>Полное имя</label>

@@ -1,16 +1,19 @@
-import React, { useCallback } from 'react';
-import { FixedSizeList as List } from 'react-window';
+import React, { useCallback, useRef } from 'react';
+import { FixedSizeList, FixedSizeList as List } from 'react-window';
 import { useAppDispatch, useAppSelector } from '../../hooks/hooks';
 import { usersActions } from '../../store/reducers/UsersReducer';
 import { selectDisplayedUsers, selectIsLoading, selectHasMore } from '../../selectors/usersSelectors';
 import useInfiniteScroll from '../../utilities/useInfiniteScroll';
 import styles from './UserList.module.scss';
+import userIMG from '../../img/user.jpg'
 
 const UserList = () => {
     const dispatch = useAppDispatch();
     const users = useAppSelector(selectDisplayedUsers);
     const isLoading = useAppSelector(selectIsLoading);
     const hasMore = useAppSelector(selectHasMore);
+    const listRef = useRef<FixedSizeList>(null);
+    const outerRef = useRef<HTMLDivElement>(null);
 
     const loadMore = useCallback(() => {
         if (!isLoading && hasMore) {
@@ -22,7 +25,7 @@ const UserList = () => {
         }
     }, [dispatch, isLoading, hasMore]);
 
-    useInfiniteScroll(loadMore);
+    useInfiniteScroll(loadMore, outerRef, isLoading);
 
     const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => {
         const user = users[index];
@@ -32,9 +35,8 @@ const UserList = () => {
                 className={styles.userCard}
                 onClick={() => dispatch(usersActions.setCurrentUser(user.id))}
             >
+                <img src={userIMG} alt="user" className={styles.userImage} />
                 <h3>{user.name}</h3>
-                <p>{user.company}, {user.department}</p>
-                <p className={styles.jobTitle}>{user.jobTitle}</p>
             </div>
         );
     };
@@ -42,9 +44,11 @@ const UserList = () => {
     return (
         <div className={styles.container}>
             <List
+                ref={listRef}
+                outerRef={outerRef}
                 height={window.innerHeight}
                 itemCount={users.length}
-                itemSize={100}
+                itemSize={50}
                 width="100%"
             >
                 {Row}
