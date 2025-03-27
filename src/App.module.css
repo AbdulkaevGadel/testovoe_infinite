@@ -1,17 +1,25 @@
-/* Error: Can't find stylesheet to import.
- *   ,
- * 1 | @import "./styles/variables";
- *   |         ^^^^^^^^^^^^^^^^^^^^
- *   '
- *   App.module.scss 1:9  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Can't find stylesheet to import.\a   \2577 \a 1 \2502  @import \"./styles/variables\";\d\a   \2502          ^^^^^^^^^^^^^^^^^^^^\a   \2575 \a   App.module.scss 1:9  root stylesheet";
+.app {
+  display: flex;
+  height: 100vh;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
+.app .noUserSelected {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  font-size: 18px;
+}
+
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+  .app .container {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=App.module.css.map */

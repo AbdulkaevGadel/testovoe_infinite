@@ -1,11 +1,10 @@
 @import "../../styles/variables";
-@import "../../styles/mixins";
 
 .container {
-  padding: $section-padding;
+  padding-left: 24px;
+  padding-right: 24px;
   background: white;
-  height: 100vh;
-  //overflow-y: auto;
+  height: 100%;
   border-left: 1px solid $border-color;
 
   .title {
@@ -20,12 +19,13 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    margin-top: $section-padding;
+    margin-top: 10px
   }
 
   .inputGroup {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
+    align-items: baseline;
     gap: 8px;
 
     .label {
@@ -34,12 +34,33 @@
       font-weight: 500;
     }
 
+    .title_input {
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      height: 30px;
+      width: 100%;
+      overflow: hidden;
+
+
+      &:focus {
+        outline: none;
+        border-color: #61bcec;
+        box-shadow: 0 0 0 2px rgba(#61bcec, 0.2);
+      }
+
+      &:disabled {
+        background: lighten($border-color, 10%);
+        color: $text-light;
+      }
+
+    }
+
     .input {
-      padding: $input-padding;  // Теперь переменная определена
+      padding: $input-padding;
       border: 1px solid $border-color;
       border-radius: $border-radius;
       font-size: 1rem;
-      height: $input-height;
 
       &:focus {
         outline: none;
@@ -84,4 +105,88 @@
     color: $text-light;
     font-size: 1.1rem;
   }
+
+  .avatar {
+    height: 200px;
+    width: 200px;
+  }
+
+  .input_main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .input_main_button {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+  }
+
+  .input_main_wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .inputGroup_title {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding: 24px;
+    background-color: #c7edfc;
+
+    .label {
+      font-size: 0.9rem;
+      color: $text-light;
+      font-weight: 500;
+    }
+
+    .title_input {
+      border: 3px solid #61bcec;
+      border-radius: 4px;
+      font-size: 1.5rem;
+      height: 30px;
+      width: 100%;
+      background-color: #c7edfc;
+
+
+      &:focus {
+        outline: none;
+        border-color: #61bcec;
+        box-shadow: 0 0 0 2px rgba(#61bcec, 0.2);
+      }
+
+      &:disabled {
+        background: lighten($border-color, 10%);
+        color: $text-light;
+      }
+
+    }
+
+    .input {
+      padding: $input-padding;
+      border: 1px solid $border-color;
+      border-radius: $border-radius;
+      font-size: 1rem;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+      }
+
+      &:disabled {
+        background: lighten($border-color, 10%);
+        color: $text-light;
+      }
+    }
+  }
 }
+
+
+

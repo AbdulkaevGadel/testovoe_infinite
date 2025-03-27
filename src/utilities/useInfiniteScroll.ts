@@ -1,4 +1,4 @@
-import { useEffect, RefObject } from 'react';
+import {RefObject, useEffect} from 'react';
 
 const useInfiniteScroll = (
     callback: () => void,
@@ -16,8 +16,8 @@ const useInfiniteScroll = (
 
             isThrottled = true;
             setTimeout(() => {
-                const { scrollTop, clientHeight, scrollHeight } = element;
-                const threshold = 200; // Расстояние до конца для подгрузки
+                const {scrollTop, clientHeight, scrollHeight} = element;
+                const threshold = 200;
 
                 if (scrollHeight - (scrollTop + clientHeight) < threshold) {
                     callback();

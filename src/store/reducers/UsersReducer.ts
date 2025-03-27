@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User } from "../../types/user";
+import {createSlice, PayloadAction} from '@reduxjs/toolkit';
+import {User} from "../../types/user";
 
 interface UsersState {
     allUsers: User[];
@@ -17,7 +17,6 @@ const initialState: UsersState = {
     hasMore: true,
 };
 
-console.log(initialState.displayedCount)
 
 export const usersSlice = createSlice({
     name: 'users',
@@ -29,9 +28,7 @@ export const usersSlice = createSlice({
             state.hasMore = action.payload.length > 100;
         },
 
-        // Улучшенный редюсер для подгрузки
         loadMoreUsers: (state) => {
-            console.log(state.isLoading)
             if (!state.hasMore || !state.isLoading) return;
 
             const newCount = state.displayedCount + 100;
